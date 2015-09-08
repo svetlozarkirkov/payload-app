@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="apfloat">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/apfloat.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/dfp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jscience.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/jscience.jar!/" />
+    </SOURCES>
+  </library>
+</component>
