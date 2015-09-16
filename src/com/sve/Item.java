@@ -16,7 +16,7 @@ public abstract class Item {
         this.setHeight(height);
     }
 
-    protected Item() {}
+    //protected Item() {}
 
     private void setName(String name) {
         if (name.length() > 0 && name.length() < MAX_NAME_LENGTH) {
