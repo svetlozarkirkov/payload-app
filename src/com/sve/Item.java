@@ -1,5 +1,7 @@
 package com.sve;
 
+import java.math.BigDecimal;
+
 public abstract class Item {
 
     private static final double MAX_NAME_LENGTH = 25;
@@ -8,12 +10,14 @@ public abstract class Item {
     private double width;
     private double depth;
     private double height;
+    private BigDecimal price;
 
-    protected Item(String name, double width, double depth, double height) {
+    protected Item(String name, double width, double depth, double height, BigDecimal price) {
         this.setName(name);
         this.setWidth(width);
         this.setDepth(depth);
         this.setHeight(height);
+        this.setPrice(price);
     }
 
     //protected Item() {}
@@ -54,6 +58,15 @@ public abstract class Item {
         }
     }
 
+    public void setPrice(BigDecimal price) {
+        if (price.compareTo(BigDecimal.ZERO) >= 0) {
+            this.price = price;
+        }
+        else {
+            throw new IllegalArgumentException("Invalid item price!");
+        }
+    }
+
     abstract void Create();
 
     @Override
@@ -62,7 +75,8 @@ public abstract class Item {
                 "Name: " + this.name + "\n" +
                 "Width: " + this.width + "\n" +
                 "Depth: " + this.depth + "\n" +
-                "Height: " + this.height;
+                "Height: " + this.height + "\n" +
+                "Price: " + this.price;
 
         return itemString;
     }

@@ -1,9 +1,11 @@
 package com.sve;
 
+import java.math.BigDecimal;
+
 public class Cylinder extends Item {
 
-    public Cylinder(String name, double width, double depth, double height) {
-        super(name, width, depth, height);
+    public Cylinder(String name, double width, double depth, double height, BigDecimal price) {
+        super(name, width, depth, height, price);
     }
 
     @Override
