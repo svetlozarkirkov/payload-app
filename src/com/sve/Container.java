@@ -1,20 +1,23 @@
 package com.sve;
 
+import java.math.BigDecimal;
+
 public abstract class Container {
 
-    private double width;
-    private double depth;
-    private double height;
+    private BigDecimal width;
+    private BigDecimal depth;
+    private BigDecimal height;
 
     protected Container(double width, double depth, double height) {
         this.setWidth(width);
         this.setDepth(depth);
         this.setHeight(height);
+        this.create();
     }
 
     private void setWidth(double width) {
         if (width > 0) {
-            this.width = width;
+            this.width = BigDecimal.valueOf(width);
         }
         else {
             throw new IllegalArgumentException("Invalid container width!");
@@ -23,7 +26,7 @@ public abstract class Container {
 
     private void setDepth(double depth) {
         if (depth > 0) {
-            this.depth = depth;
+            this.depth = BigDecimal.valueOf(depth);
         }
         else {
             throw new IllegalArgumentException("Invalid container depth!");
@@ -32,16 +35,16 @@ public abstract class Container {
 
     private void setHeight(double height) {
         if (height > 0) {
-            this.height = height;
+            this.height = BigDecimal.valueOf(height);
         }
         else {
             throw new IllegalArgumentException("Invalid container height!");
         }
     }
 
-    abstract void Create();
+    abstract void create();
 
-    abstract void Fill();
+    abstract void fill();
 
     @Override
     public String toString() {

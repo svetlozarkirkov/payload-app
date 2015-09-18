@@ -7,18 +7,18 @@ public abstract class Item {
     private static final double MAX_NAME_LENGTH = 25;
 
     private String name;
-    private double width;
-    private double depth;
-    private double height;
+    private BigDecimal width;
+    private BigDecimal depth;
+    private BigDecimal height;
     private BigDecimal price;
 
-    protected Item(String name, double width, double depth, double height, BigDecimal price) {
+    protected Item(String name, double width, double depth, double height, double price) {
         this.setName(name);
         this.setWidth(width);
         this.setDepth(depth);
         this.setHeight(height);
         this.setPrice(price);
-        this.Create();
+        this.create();
     }
 
     private void setName(String name) {
@@ -32,7 +32,7 @@ public abstract class Item {
 
     private void setWidth(double width) {
         if (width > 0) {
-            this.width = width;
+            this.width = BigDecimal.valueOf(width);
         }
         else {
             throw new IllegalArgumentException("Invalid item width!");
@@ -41,7 +41,7 @@ public abstract class Item {
 
     private void setDepth(double depth) {
         if (depth > 0) {
-            this.depth = depth;
+            this.depth = BigDecimal.valueOf(depth);
         }
         else {
             throw new IllegalArgumentException("Invalid item depth!");
@@ -50,23 +50,23 @@ public abstract class Item {
 
     private void setHeight(double height) {
         if (height > 0) {
-            this.height = height;
+            this.height = BigDecimal.valueOf(height);
         }
         else {
             throw new IllegalArgumentException("Invalid item height!");
         }
     }
 
-    private void setPrice(BigDecimal price) {
-        if (price.compareTo(BigDecimal.ZERO) >= 0) {
-            this.price = price;
+    private void setPrice(double price) {
+        if (price >= 0) {
+            this.price = BigDecimal.valueOf(price);
         }
         else {
             throw new IllegalArgumentException("Invalid item price!");
         }
     }
 
-    abstract void Create();
+    abstract void create();
 
     @Override
     public String toString() {
