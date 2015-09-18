@@ -1,12 +1,14 @@
 package com.sve;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 
 public abstract class Container {
 
     private BigDecimal width;
     private BigDecimal depth;
     private BigDecimal height;
+    private BigDecimal totalCargoPrice;
 
     protected Container(double width, double depth, double height) {
         this.setWidth(width);
@@ -17,7 +19,7 @@ public abstract class Container {
 
     private void setWidth(double width) {
         if (width > 0) {
-            this.width = BigDecimal.valueOf(width);
+            this.width = new BigDecimal(String.valueOf(width), MathContext.DECIMAL128);
         }
         else {
             throw new IllegalArgumentException("Invalid container width!");
@@ -26,7 +28,7 @@ public abstract class Container {
 
     private void setDepth(double depth) {
         if (depth > 0) {
-            this.depth = BigDecimal.valueOf(depth);
+            this.depth = new BigDecimal(String.valueOf(depth), MathContext.DECIMAL128);
         }
         else {
             throw new IllegalArgumentException("Invalid container depth!");
@@ -35,7 +37,7 @@ public abstract class Container {
 
     private void setHeight(double height) {
         if (height > 0) {
-            this.height = BigDecimal.valueOf(height);
+            this.height = new BigDecimal(String.valueOf(height), MathContext.DECIMAL128);
         }
         else {
             throw new IllegalArgumentException("Invalid container height!");
@@ -49,9 +51,10 @@ public abstract class Container {
     @Override
     public String toString() {
         String containerString =
-                "Width: " + this.width + "\n" +
-                "Depth: " + this.depth + "\n" +
-                "Height: " + this.height;
+                "Width: " + Formatting.TWO_DECIMAL_PLACES_FORMAT.format(this.width) + "\n" +
+                "Depth: " + Formatting.TWO_DECIMAL_PLACES_FORMAT.format(this.depth) + "\n" +
+                "Height: " + Formatting.TWO_DECIMAL_PLACES_FORMAT.format(this.height) + "\n" +
+                "Total cargo price: " + Formatting.TWO_DECIMAL_PLACES_FORMAT.format(this.totalCargoPrice);
 
         return containerString;
     }

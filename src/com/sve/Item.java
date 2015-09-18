@@ -1,6 +1,7 @@
 package com.sve;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 
 public abstract class Item {
 
@@ -32,7 +33,7 @@ public abstract class Item {
 
     private void setWidth(double width) {
         if (width > 0) {
-            this.width = BigDecimal.valueOf(width);
+            this.width = new BigDecimal(String.valueOf(width), MathContext.DECIMAL128);
         }
         else {
             throw new IllegalArgumentException("Invalid item width!");
@@ -41,7 +42,7 @@ public abstract class Item {
 
     private void setDepth(double depth) {
         if (depth > 0) {
-            this.depth = BigDecimal.valueOf(depth);
+            this.depth = new BigDecimal(String.valueOf(depth), MathContext.DECIMAL128);
         }
         else {
             throw new IllegalArgumentException("Invalid item depth!");
@@ -50,7 +51,7 @@ public abstract class Item {
 
     private void setHeight(double height) {
         if (height > 0) {
-            this.height = BigDecimal.valueOf(height);
+            this.height = new BigDecimal(String.valueOf(height), MathContext.DECIMAL128);
         }
         else {
             throw new IllegalArgumentException("Invalid item height!");
@@ -59,7 +60,7 @@ public abstract class Item {
 
     private void setPrice(double price) {
         if (price >= 0) {
-            this.price = BigDecimal.valueOf(price);
+            this.price = new BigDecimal(String.valueOf(price), MathContext.DECIMAL128);
         }
         else {
             throw new IllegalArgumentException("Invalid item price!");
@@ -72,10 +73,10 @@ public abstract class Item {
     public String toString() {
         String itemString =
                 "Name: " + this.name + "\n" +
-                "Width: " + this.width + "\n" +
-                "Depth: " + this.depth + "\n" +
-                "Height: " + this.height + "\n" +
-                "Price: " + this.price;
+                "Width: " + Formatting.TWO_DECIMAL_PLACES_FORMAT.format(this.width) + "\n" +
+                "Depth: " + Formatting.TWO_DECIMAL_PLACES_FORMAT.format(this.depth) + "\n" +
+                "Height: " + Formatting.TWO_DECIMAL_PLACES_FORMAT.format(this.height) + "\n" +
+                "Price: " + Formatting.TWO_DECIMAL_PLACES_FORMAT.format(this.price);
 
         return itemString;
     }
