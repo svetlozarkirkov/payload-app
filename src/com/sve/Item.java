@@ -66,7 +66,7 @@ public abstract class Item {
         }
     }
 
-    abstract void create();
+    protected abstract void create();
 
     @Override
     public String toString() {

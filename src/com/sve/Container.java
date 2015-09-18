@@ -42,9 +42,9 @@ public abstract class Container {
         }
     }
 
-    abstract void create();
+    protected abstract void create();
 
-    abstract void fill();
+    protected abstract void fill();
 
     @Override
     public String toString() {
