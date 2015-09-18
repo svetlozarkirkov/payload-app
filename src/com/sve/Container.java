@@ -17,6 +17,22 @@ public abstract class Container {
         this.create();
     }
 
+    public BigDecimal getWidth() {
+        return this.width.setScale(2);
+    }
+
+    public BigDecimal getDepth() {
+        return this.depth.setScale(2);
+    }
+
+    public BigDecimal getHeight() {
+        return this.height.setScale(2);
+    }
+
+    public BigDecimal getTotalCargoPrice() {
+        return this.totalCargoPrice.setScale(2);
+    }
+
     private void setWidth(double width) {
         if (width > 0) {
             this.width = new BigDecimal(String.valueOf(width), MathContext.DECIMAL128);
@@ -51,10 +67,10 @@ public abstract class Container {
     @Override
     public String toString() {
         String containerString =
-                "Width: " + Formatting.TWO_DECIMAL_PLACES_FORMAT.format(this.width) + "\n" +
-                "Depth: " + Formatting.TWO_DECIMAL_PLACES_FORMAT.format(this.depth) + "\n" +
-                "Height: " + Formatting.TWO_DECIMAL_PLACES_FORMAT.format(this.height) + "\n" +
-                "Total cargo price: " + Formatting.TWO_DECIMAL_PLACES_FORMAT.format(this.totalCargoPrice);
+                "Width: " + this.getWidth() + "\n" +
+                "Depth: " + this.getDepth() + "\n" +
+                "Height: " + this.getHeight() + "\n" +
+                "Total cargo price: " + this.getTotalCargoPrice();
 
         return containerString;
     }

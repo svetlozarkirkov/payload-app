@@ -2,6 +2,7 @@ package com.sve;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.math.RoundingMode;
 
 public abstract class Item {
 
@@ -20,6 +21,26 @@ public abstract class Item {
         this.setHeight(height);
         this.setPrice(price);
         this.create();
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public BigDecimal getWidth() {
+        return this.width.setScale(2);
+    }
+
+    public BigDecimal getDepth() {
+        return this.depth.setScale(2);
+    }
+
+    public BigDecimal getHeight() {
+        return this.height.setScale(2);
+    }
+
+    public BigDecimal getPrice() {
+        return this.price.setScale(2);
     }
 
     private void setName(String name) {
@@ -72,11 +93,11 @@ public abstract class Item {
     @Override
     public String toString() {
         String itemString =
-                "Name: " + this.name + "\n" +
-                "Width: " + Formatting.TWO_DECIMAL_PLACES_FORMAT.format(this.width) + "\n" +
-                "Depth: " + Formatting.TWO_DECIMAL_PLACES_FORMAT.format(this.depth) + "\n" +
-                "Height: " + Formatting.TWO_DECIMAL_PLACES_FORMAT.format(this.height) + "\n" +
-                "Price: " + Formatting.TWO_DECIMAL_PLACES_FORMAT.format(this.price);
+                "Name: " + this.getName() + "\n" +
+                "Width: " + this.getWidth() + "\n" +
+                "Depth: " + this.getDepth() + "\n" +
+                "Height: " + this.getHeight() + "\n" +
+                "Price: " + this.getPrice();
 
         return itemString;
     }
