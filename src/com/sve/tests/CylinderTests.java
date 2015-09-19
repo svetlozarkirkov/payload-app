@@ -9,10 +9,10 @@ import java.math.BigDecimal;
 public class CylinderTests {
 
     @Test
-    public void cylinderMustBeCreatedProperly() {
+    public void cylinderAllFieldsMustBeInitializedProperly() {
 
-        // Init
-        Cylinder test = new Cylinder("Test", 2.00, 4.00, 6.00, 10.00);
+        // Arrange
+        Cylinder test = new Cylinder("Test", "2.00", "4.00", "6.00", "10.00");
 
         // Assert
         Assert.assertEquals("Cylinder name must be \"Test\"", "Test", test.getName());

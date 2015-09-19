@@ -10,7 +10,7 @@ public abstract class Container {
     private BigDecimal height;
     private BigDecimal totalCargoPrice;
 
-    protected Container(double width, double depth, double height) {
+    protected Container(String width, String depth, String height) {
         this.setWidth(width);
         this.setDepth(depth);
         this.setHeight(height);
@@ -33,27 +33,27 @@ public abstract class Container {
         return this.totalCargoPrice.setScale(2);
     }
 
-    private void setWidth(double width) {
-        if (width > 0) {
-            this.width = new BigDecimal(String.valueOf(width), MathContext.DECIMAL128);
+    private void setWidth(String width) {
+        if (Double.parseDouble(width) > 0) {
+            this.width = new BigDecimal(width, MathContext.DECIMAL128);
         }
         else {
             throw new IllegalArgumentException("Invalid container width!");
         }
     }
 
-    private void setDepth(double depth) {
-        if (depth > 0) {
-            this.depth = new BigDecimal(String.valueOf(depth), MathContext.DECIMAL128);
+    private void setDepth(String depth) {
+        if (Double.parseDouble(depth) > 0) {
+            this.depth = new BigDecimal(depth, MathContext.DECIMAL128);
         }
         else {
             throw new IllegalArgumentException("Invalid container depth!");
         }
     }
 
-    private void setHeight(double height) {
-        if (height > 0) {
-            this.height = new BigDecimal(String.valueOf(height), MathContext.DECIMAL128);
+    private void setHeight(String height) {
+        if (Double.parseDouble(height) > 0) {
+            this.height = new BigDecimal(height, MathContext.DECIMAL128);
         }
         else {
             throw new IllegalArgumentException("Invalid container height!");

@@ -2,7 +2,6 @@ package com.sve;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
-import java.math.RoundingMode;
 
 public abstract class Item {
 
@@ -14,7 +13,7 @@ public abstract class Item {
     private BigDecimal height;
     private BigDecimal price;
 
-    protected Item(String name, double width, double depth, double height, double price) {
+    protected Item(String name, String width, String depth, String height, String price) {
         this.setName(name);
         this.setWidth(width);
         this.setDepth(depth);
@@ -52,36 +51,36 @@ public abstract class Item {
         }
     }
 
-    private void setWidth(double width) {
-        if (width > 0) {
-            this.width = new BigDecimal(String.valueOf(width), MathContext.DECIMAL128);
+    private void setWidth(String width) {
+        if (Double.parseDouble(width) > 0) {
+            this.width = new BigDecimal(width, MathContext.DECIMAL128);
         }
         else {
             throw new IllegalArgumentException("Invalid item width!");
         }
     }
 
-    private void setDepth(double depth) {
-        if (depth > 0) {
-            this.depth = new BigDecimal(String.valueOf(depth), MathContext.DECIMAL128);
+    private void setDepth(String depth) {
+        if (Double.parseDouble(depth) > 0) {
+            this.depth = new BigDecimal(depth, MathContext.DECIMAL128);
         }
         else {
             throw new IllegalArgumentException("Invalid item depth!");
         }
     }
 
-    private void setHeight(double height) {
-        if (height > 0) {
-            this.height = new BigDecimal(String.valueOf(height), MathContext.DECIMAL128);
+    private void setHeight(String height) {
+        if (Double.parseDouble(height) > 0) {
+            this.height = new BigDecimal(height, MathContext.DECIMAL128);
         }
         else {
             throw new IllegalArgumentException("Invalid item height!");
         }
     }
 
-    private void setPrice(double price) {
-        if (price >= 0) {
-            this.price = new BigDecimal(String.valueOf(price), MathContext.DECIMAL128);
+    private void setPrice(String price) {
+        if (Double.parseDouble(price) >= 0) {
+            this.price = new BigDecimal(price, MathContext.DECIMAL128);
         }
         else {
             throw new IllegalArgumentException("Invalid item price!");

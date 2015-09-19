@@ -2,7 +2,7 @@ package com.sve;
 
 public class Cylinder extends Item {
 
-    public Cylinder(String name, double width, double depth, double height, double price) {
+    public Cylinder(String name, String width, String depth, String height, String price) {
         super(name, width, depth, height, price);
     }
 
