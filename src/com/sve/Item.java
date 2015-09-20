@@ -38,9 +38,7 @@ public abstract class Item {
         return this.height;
     }
 
-    public BigDecimal getPrice() {
-        return this.price;
-    }
+    public BigDecimal getPrice() { return this.price; }
 
     private void setName(String name) {
         if (name.length() > 0 && name.length() < MAX_NAME_LENGTH) {

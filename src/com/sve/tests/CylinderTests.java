@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class CylinderTests {
 
     @Test
-    public void cylinderAllFieldsMustBeInitializedProperly() {
+    public void cylinderAllFieldsMustBeInitializedProperlyWhenUsingCorrectValues() {
 
         // Arrange
         Cylinder test = new Cylinder("Test", "2.00", "4.00", "6.00", "10.00");

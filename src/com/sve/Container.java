@@ -23,9 +23,7 @@ public abstract class Container {
         return this.depth;
     }
 
-    public BigDecimal getHeight() {
-        return this.height;
-    }
+    public BigDecimal getHeight() { return this.height; }
 
     public BigDecimal getTotalCargoPrice() {
         return this.totalCargoPrice;
