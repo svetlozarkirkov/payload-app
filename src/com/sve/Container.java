@@ -2,12 +2,15 @@ package com.sve;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public abstract class Container {
 
     private BigDecimal width;
     private BigDecimal depth;
     private BigDecimal height;
+    private Collection<Item> cargoItems = new ArrayList<>();
     private BigDecimal totalCargoPrice;
 
     protected Container(String width, String depth, String height) {
@@ -54,6 +57,10 @@ public abstract class Container {
         else {
             throw new IllegalArgumentException("Invalid container height!");
         }
+    }
+
+    public void addItemToContainer(Item item) {
+        this.cargoItems.add(item);
     }
 
     protected abstract void create();
