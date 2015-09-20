@@ -3,7 +3,6 @@ package com.sve.tests;
 import com.sve.Cylinder;
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.math.BigDecimal;
 
 public class CylinderTests {

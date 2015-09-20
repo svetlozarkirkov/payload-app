@@ -27,19 +27,19 @@ public abstract class Item {
     }
 
     public BigDecimal getWidth() {
-        return this.width.setScale(2);
+        return this.width;
     }
 
     public BigDecimal getDepth() {
-        return this.depth.setScale(2);
+        return this.depth;
     }
 
     public BigDecimal getHeight() {
-        return this.height.setScale(2);
+        return this.height;
     }
 
     public BigDecimal getPrice() {
-        return this.price.setScale(2);
+        return this.price;
     }
 
     private void setName(String name) {

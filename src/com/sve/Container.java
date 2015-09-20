@@ -17,20 +17,18 @@ public abstract class Container {
         this.create();
     }
 
-    public BigDecimal getWidth() {
-        return this.width.setScale(2);
-    }
+    public BigDecimal getWidth() { return this.width; }
 
     public BigDecimal getDepth() {
-        return this.depth.setScale(2);
+        return this.depth;
     }
 
     public BigDecimal getHeight() {
-        return this.height.setScale(2);
+        return this.height;
     }
 
     public BigDecimal getTotalCargoPrice() {
-        return this.totalCargoPrice.setScale(2);
+        return this.totalCargoPrice;
     }
 
     private void setWidth(String width) {
