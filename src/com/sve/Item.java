@@ -3,9 +3,9 @@ package com.sve;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
-public abstract class Item {
+public abstract class Item extends Init {
 
-    private static final double MAX_NAME_LENGTH = 25;
+    private static final double MAX_ITEM_NAME_LENGTH = 25;
 
     private String name;
     private BigDecimal width;
@@ -14,6 +14,7 @@ public abstract class Item {
     private BigDecimal price;
 
     protected Item(String name, String width, String depth, String height, String price) {
+
         this.setName(name);
         this.setWidth(width);
         this.setDepth(depth);
@@ -41,7 +42,8 @@ public abstract class Item {
     public BigDecimal getPrice() { return this.price; }
 
     private void setName(String name) {
-        if (name.length() > 0 && name.length() < MAX_NAME_LENGTH) {
+
+        if (name.length() > 0 && name.length() < MAX_ITEM_NAME_LENGTH) {
             this.name = name;
         }
         else {
@@ -50,7 +52,8 @@ public abstract class Item {
     }
 
     private void setWidth(String width) {
-        if (Double.parseDouble(width) > 0) {
+
+        if (this.errorHandling.checkNumberParsing(width) > 0) {
             this.width = new BigDecimal(width, MathContext.DECIMAL128);
         }
         else {
@@ -59,7 +62,8 @@ public abstract class Item {
     }
 
     private void setDepth(String depth) {
-        if (Double.parseDouble(depth) > 0) {
+
+        if (this.errorHandling.checkNumberParsing(depth) > 0) {
             this.depth = new BigDecimal(depth, MathContext.DECIMAL128);
         }
         else {
@@ -68,7 +72,8 @@ public abstract class Item {
     }
 
     private void setHeight(String height) {
-        if (Double.parseDouble(height) > 0) {
+
+        if (this.errorHandling.checkNumberParsing(height) > 0) {
             this.height = new BigDecimal(height, MathContext.DECIMAL128);
         }
         else {
@@ -77,7 +82,8 @@ public abstract class Item {
     }
 
     private void setPrice(String price) {
-        if (Double.parseDouble(price) >= 0) {
+
+        if (this.errorHandling.checkNumberParsing(price) >= 0) {
             this.price = new BigDecimal(price, MathContext.DECIMAL128);
         }
         else {
@@ -89,6 +95,7 @@ public abstract class Item {
 
     @Override
     public String toString() {
+
         String itemString =
                 "Name: " + this.getName() + "\n" +
                 "Width: " + this.getWidth() + "\n" +
