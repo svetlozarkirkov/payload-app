@@ -19,6 +19,9 @@ public class Main {
         System.out.println(gson.toJson(bla));
 
         System.out.println(gson.toJson(truck));
-        System.out.println(gson.toJson(truck.getTotalCargoPrice()));
+
+        System.out.println(truck.getTotalCargoPrice());
+
+        System.out.println(gson.toJson(truck.getCargoItems()));
     }
 }

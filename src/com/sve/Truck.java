@@ -10,9 +10,4 @@ public class Truck extends Container {
     protected void create() {
 
     }
-
-    @Override
-    protected void fill() {
-
-    }
 }

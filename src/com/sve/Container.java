@@ -18,20 +18,20 @@ public abstract class Container extends Init {
         this.create();
     }
 
-    public BigDecimal getWidth() { return this.width; }
+    public BigDecimal getWidth() { return new BigDecimal(this.width.toString()); }
 
     public BigDecimal getDepth() {
-        return this.depth;
+        return new BigDecimal(this.depth.toString());
     }
 
-    public BigDecimal getHeight() { return this.height; }
+    public BigDecimal getHeight() { return new BigDecimal(this.height.toString()); }
 
-    public ArrayList<Item> getCargoItems() { return this.cargoItems; }
+    public ArrayList<Item> getCargoItems() { return new ArrayList<>(cargoItems); }
 
     public BigDecimal getTotalCargoPrice() {
         BigDecimal totalPrice = BigDecimal.ZERO;
 
-        for (Item item : this.getCargoItems()) {
+        for (Item item : this.cargoItems) {
             totalPrice = totalPrice.add(item.getPrice());
         }
 
@@ -66,12 +66,10 @@ public abstract class Container extends Init {
     }
 
     public void addItemToContainer(Item item) {
-        this.getCargoItems().add(item);
+        this.cargoItems.add(item);
     }
 
     protected abstract void create();
-
-    protected abstract void fill();
 
     @Override
     public String toString() {
