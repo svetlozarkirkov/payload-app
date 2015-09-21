@@ -12,7 +12,6 @@ public abstract class Container extends Init {
     private ArrayList<Item> cargoItems = new ArrayList<>();
 
     protected Container(String width, String depth, String height) {
-
         this.setWidth(width);
         this.setDepth(depth);
         this.setHeight(height);
@@ -30,7 +29,6 @@ public abstract class Container extends Init {
     public ArrayList<Item> getCargoItems() { return this.cargoItems; }
 
     public BigDecimal getTotalCargoPrice() {
-
         BigDecimal totalPrice = BigDecimal.ZERO;
 
         for (Item item : this.getCargoItems()) {
@@ -41,7 +39,6 @@ public abstract class Container extends Init {
     }
 
     private void setWidth(String width) {
-
         if (this.errorHandling.checkNumberParsing(width) > 0) {
             this.width = new BigDecimal(width, MathContext.DECIMAL128);
         }
@@ -51,7 +48,6 @@ public abstract class Container extends Init {
     }
 
     private void setDepth(String depth) {
-
         if (this.errorHandling.checkNumberParsing(depth) > 0) {
             this.depth = new BigDecimal(depth, MathContext.DECIMAL128);
         }
@@ -61,7 +57,6 @@ public abstract class Container extends Init {
     }
 
     private void setHeight(String height) {
-
         if (this.errorHandling.checkNumberParsing(height) > 0) {
             this.height = new BigDecimal(height, MathContext.DECIMAL128);
         }
@@ -71,7 +66,6 @@ public abstract class Container extends Init {
     }
 
     public void addItemToContainer(Item item) {
-
         this.getCargoItems().add(item);
     }
 
@@ -81,7 +75,6 @@ public abstract class Container extends Init {
 
     @Override
     public String toString() {
-
         String containerString =
                 "Width: " + this.getWidth() + "\n" +
                 "Depth: " + this.getDepth() + "\n" +

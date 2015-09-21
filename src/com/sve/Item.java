@@ -14,7 +14,6 @@ public abstract class Item extends Init {
     private BigDecimal price;
 
     protected Item(String name, String width, String depth, String height, String price) {
-
         this.setName(name);
         this.setWidth(width);
         this.setDepth(depth);
@@ -42,7 +41,6 @@ public abstract class Item extends Init {
     public BigDecimal getPrice() { return this.price; }
 
     private void setName(String name) {
-
         if (name.length() > 0 && name.length() < MAX_ITEM_NAME_LENGTH) {
             this.name = name;
         }
@@ -52,7 +50,6 @@ public abstract class Item extends Init {
     }
 
     private void setWidth(String width) {
-
         if (this.errorHandling.checkNumberParsing(width) > 0) {
             this.width = new BigDecimal(width, MathContext.DECIMAL128);
         }
@@ -62,7 +59,6 @@ public abstract class Item extends Init {
     }
 
     private void setDepth(String depth) {
-
         if (this.errorHandling.checkNumberParsing(depth) > 0) {
             this.depth = new BigDecimal(depth, MathContext.DECIMAL128);
         }
@@ -72,7 +68,6 @@ public abstract class Item extends Init {
     }
 
     private void setHeight(String height) {
-
         if (this.errorHandling.checkNumberParsing(height) > 0) {
             this.height = new BigDecimal(height, MathContext.DECIMAL128);
         }
@@ -82,7 +77,6 @@ public abstract class Item extends Init {
     }
 
     private void setPrice(String price) {
-
         if (this.errorHandling.checkNumberParsing(price) >= 0) {
             this.price = new BigDecimal(price, MathContext.DECIMAL128);
         }
@@ -95,7 +89,6 @@ public abstract class Item extends Init {
 
     @Override
     public String toString() {
-
         String itemString =
                 "Name: " + this.getName() + "\n" +
                 "Width: " + this.getWidth() + "\n" +
