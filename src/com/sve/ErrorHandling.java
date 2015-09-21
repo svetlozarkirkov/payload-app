@@ -2,7 +2,7 @@ package com.sve;
 
 public class ErrorHandling {
 
-    public Double checkNumberParsing(String value) {
+    public Double stringToDoubleHandle(String value) {
 
         try {
             return Double.parseDouble(value);

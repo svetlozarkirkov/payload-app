@@ -50,7 +50,7 @@ public abstract class Item extends Init {
     }
 
     private void setWidth(String width) {
-        if (this.errorHandling.checkNumberParsing(width) > 0) {
+        if (this.errorHandling.stringToDoubleHandle(width) > 0) {
             this.width = new BigDecimal(width, MathContext.DECIMAL128);
         }
         else {
@@ -59,7 +59,7 @@ public abstract class Item extends Init {
     }
 
     private void setDepth(String depth) {
-        if (this.errorHandling.checkNumberParsing(depth) > 0) {
+        if (this.errorHandling.stringToDoubleHandle(depth) > 0) {
             this.depth = new BigDecimal(depth, MathContext.DECIMAL128);
         }
         else {
@@ -68,7 +68,7 @@ public abstract class Item extends Init {
     }
 
     private void setHeight(String height) {
-        if (this.errorHandling.checkNumberParsing(height) > 0) {
+        if (this.errorHandling.stringToDoubleHandle(height) > 0) {
             this.height = new BigDecimal(height, MathContext.DECIMAL128);
         }
         else {
@@ -77,7 +77,7 @@ public abstract class Item extends Init {
     }
 
     private void setPrice(String price) {
-        if (this.errorHandling.checkNumberParsing(price) >= 0) {
+        if (this.errorHandling.stringToDoubleHandle(price) >= 0) {
             this.price = new BigDecimal(price, MathContext.DECIMAL128);
         }
         else {
