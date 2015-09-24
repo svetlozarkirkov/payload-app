@@ -5,7 +5,7 @@ import java.math.MathContext;
 
 public abstract class Item {
 
-    private static final double MAX_ITEM_NAME_LENGTH = 25;
+    private static final int MAX_ITEM_NAME_LENGTH = 25;
 
     private String name;
     private BigDecimal volume;

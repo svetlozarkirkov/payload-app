@@ -25,8 +25,6 @@ public abstract class Container {
 
     public BigDecimal getHeight() { return new BigDecimal(this.height.toString()); }
 
-    public ArrayList<Item> getCargoItems() { return new ArrayList<>(cargoItems); }
-
     public BigDecimal getTotalCargoPrice() {
         BigDecimal totalPrice = BigDecimal.ZERO;
 
@@ -35,6 +33,14 @@ public abstract class Container {
         }
 
         return totalPrice;
+    }
+
+    public ArrayList<Item> getCargoItems() {
+        return new ArrayList<>(this.cargoItems);
+    }
+
+    public void addItemToContainer(Item item) {
+        this.cargoItems.add(item);
     }
 
     private void setWidth(BigDecimal width) {
@@ -62,10 +68,6 @@ public abstract class Container {
         else {
             throw new IllegalArgumentException("Invalid container height!");
         }
-    }
-
-    public void addItemToContainer(Item item) {
-        this.cargoItems.add(item);
     }
 
     @Override
