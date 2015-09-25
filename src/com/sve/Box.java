@@ -3,7 +3,7 @@ package com.sve;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
-public abstract class Box extends Item {
+public class Box extends Item {
 
     private BigDecimal width;
     private BigDecimal depth;
@@ -17,15 +17,15 @@ public abstract class Box extends Item {
     }
 
     public BigDecimal getWidth() {
-        return new BigDecimal(this.width.toString());
+        return this.width.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
     public BigDecimal getDepth() {
-        return new BigDecimal(this.depth.toString());
+        return this.depth.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
     public BigDecimal getHeight() {
-        return new BigDecimal(this.height.toString());
+        return this.height.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
     private void setWidth(BigDecimal width) {

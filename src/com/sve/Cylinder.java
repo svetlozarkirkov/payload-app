@@ -3,7 +3,7 @@ package com.sve;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
-public abstract class Cylinder extends Item {
+public class Cylinder extends Item {
 
     private BigDecimal radius;
     private BigDecimal width;

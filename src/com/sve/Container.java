@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.ArrayList;
 
-public abstract class Container {
+public class Container {
 
     private BigDecimal width;
     private BigDecimal depth;
@@ -17,13 +17,13 @@ public abstract class Container {
         this.setHeight(height);
     }
 
-    public BigDecimal getWidth() { return new BigDecimal(this.width.toString()); }
+    public BigDecimal getWidth() { return this.width.setScale(2, BigDecimal.ROUND_HALF_UP); }
 
     public BigDecimal getDepth() {
-        return new BigDecimal(this.depth.toString());
+        return this.depth.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
-    public BigDecimal getHeight() { return new BigDecimal(this.height.toString()); }
+    public BigDecimal getHeight() { return this.height.setScale(2, BigDecimal.ROUND_HALF_UP); }
 
     public BigDecimal getTotalCargoPrice() {
         BigDecimal totalPrice = BigDecimal.ZERO;
@@ -32,7 +32,7 @@ public abstract class Container {
             totalPrice = totalPrice.add(item.getPrice());
         }
 
-        return totalPrice;
+        return totalPrice.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
     public ArrayList<Item> getCargoItems() {

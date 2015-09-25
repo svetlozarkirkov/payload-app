@@ -22,11 +22,11 @@ public abstract class Item {
     }
 
     public BigDecimal getVolume() {
-        return new BigDecimal(this.volume.toString());
+        return this.volume.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
     public BigDecimal getPrice() {
-        return new BigDecimal(this.price.toString());
+        return this.price.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
     private void setName(String name) {
