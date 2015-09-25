@@ -1,6 +1,5 @@
 package com.sve;
 
-import com.google.gson.Gson;
 import java.math.BigDecimal;
 
 public class Main {
@@ -8,38 +7,33 @@ public class Main {
     public static void main(String[] args) {
 
         Container testContainer = new Container(
-                new BigDecimal(2),
-                new BigDecimal(4),
-                new BigDecimal(6));
+                new BigDecimal("2.3285237583578"),
+                new BigDecimal("4.75647567"),
+                new BigDecimal("6.35723652375"));
 
         Item box = new Box(
                 "Test Item",
-                new BigDecimal(2),
-                new BigDecimal(4),
-                new BigDecimal(6),
+                new BigDecimal("2.845638578"),
+                new BigDecimal("4.23734623657"),
+                new BigDecimal("6.52646"),
                 new BigDecimal("158.12"));
 
         Item cylinder = new Cylinder(
                 "Cylinder",
-                new BigDecimal(2),
-                new BigDecimal(4),
+                new BigDecimal("2.1241242525"),
+                new BigDecimal("4.5236574576"),
                 new BigDecimal("15.43"));
 
         testContainer.addItemToContainer(box);
         testContainer.addItemToContainer(cylinder);
 
-        Gson gson = new Gson();
+        System.out.println("Test container total price: " + testContainer.getTotalCargoPrice());
+        System.out.println("Test container total volume: " + testContainer.getCargoItemsTotalVolume());
 
-        System.out.println(gson.toJson(box));
-        System.out.println(gson.toJson(cylinder));
-        System.out.println(gson.toJson(testContainer));
+        System.out.println("Box volume: " + box.getVolume());
+        System.out.println("Box price: " + box.getPrice());
 
-        System.out.println(testContainer.getTotalCargoPrice());
-
-        System.out.println(box.getVolume());
-        System.out.println(box.getPrice());
-
-        System.out.println(cylinder.getVolume());
-        System.out.println(cylinder.getPrice());
+        System.out.println("Cylinder volume: " + cylinder.getVolume());
+        System.out.println("Cylinder price: " + cylinder.getPrice());
     }
 }

@@ -39,6 +39,16 @@ public class Container {
         return new ArrayList<>(this.cargoItems);
     }
 
+    public BigDecimal getCargoItemsTotalVolume() {
+        BigDecimal totalVolume = BigDecimal.ZERO;
+
+        for (Item item : this.cargoItems) {
+            totalVolume = totalVolume.add(item.getVolume());
+        }
+
+        return totalVolume.setScale(2, BigDecimal.ROUND_HALF_UP);
+    }
+
     public void addItemToContainer(Item item) {
         this.cargoItems.add(item);
     }
