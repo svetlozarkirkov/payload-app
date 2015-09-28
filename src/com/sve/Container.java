@@ -26,10 +26,10 @@ public class Container {
     public BigDecimal getHeight() { return this.height.setScale(2, BigDecimal.ROUND_HALF_UP); }
 
     public BigDecimal getTotalCargoPrice() {
-        return
-                this.getCargoItems().stream()
-                .map(Item::getPrice)
-                .reduce(BigDecimal.ZERO, BigDecimal::add).setScale(2, BigDecimal.ROUND_HALF_UP);
+        return this.getCargoItems()
+                .stream().map(Item::getPrice)
+                .reduce(BigDecimal.ZERO, BigDecimal::add)
+                .setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
     public ArrayList<Item> getCargoItems() {
@@ -37,10 +37,10 @@ public class Container {
     }
 
     public BigDecimal getCargoItemsTotalVolume() {
-        return
-                this.getCargoItems().stream()
-                .map(Item::getVolume)
-                .reduce(BigDecimal.ZERO, BigDecimal::add).setScale(2, BigDecimal.ROUND_HALF_UP);
+        return this.getCargoItems()
+                .stream().map(Item::getVolume)
+                .reduce(BigDecimal.ZERO, BigDecimal::add)
+                .setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
     public void addItemToContainer(Item item) {
