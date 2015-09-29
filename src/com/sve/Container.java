@@ -17,19 +17,23 @@ public class Container {
         this.setHeight(height);
     }
 
-    public BigDecimal getWidth() { return this.width.setScale(2, BigDecimal.ROUND_HALF_UP); }
-
-    public BigDecimal getDepth() {
-        return this.depth.setScale(2, BigDecimal.ROUND_HALF_UP);
+    public BigDecimal getWidth() {
+        return this.width.setScale(2, BigDecimal.ROUND_HALF_EVEN);
     }
 
-    public BigDecimal getHeight() { return this.height.setScale(2, BigDecimal.ROUND_HALF_UP); }
+    public BigDecimal getDepth() {
+        return this.depth.setScale(2, BigDecimal.ROUND_HALF_EVEN);
+    }
+
+    public BigDecimal getHeight() {
+        return this.height.setScale(2, BigDecimal.ROUND_HALF_EVEN);
+    }
 
     public BigDecimal getTotalCargoPrice() {
         return this.getCargoItems()
                 .stream().map(Item::getPrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add)
-                .setScale(2, BigDecimal.ROUND_HALF_UP);
+                .setScale(2, BigDecimal.ROUND_HALF_EVEN);
     }
 
     public ArrayList<Item> getCargoItems() {
@@ -40,7 +44,7 @@ public class Container {
         return this.getCargoItems()
                 .stream().map(Item::getVolume)
                 .reduce(BigDecimal.ZERO, BigDecimal::add)
-                .setScale(2, BigDecimal.ROUND_HALF_UP);
+                .setScale(2, BigDecimal.ROUND_HALF_EVEN);
     }
 
     public void addItemToContainer(Item item) {

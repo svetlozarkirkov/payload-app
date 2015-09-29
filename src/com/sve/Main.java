@@ -16,13 +16,13 @@ public class Main {
                 new BigDecimal("2.845638578"),
                 new BigDecimal("4.23734623657"),
                 new BigDecimal("6.52646"),
-                new BigDecimal("158.12"));
+                new BigDecimal("158.122113654346"));
 
         Item cylinder = new Cylinder(
                 "Cylinder",
                 new BigDecimal("2.1241242525"),
                 new BigDecimal("4.5236574576"),
-                new BigDecimal("15.43"));
+                new BigDecimal("15.432135246262"));
 
         testContainer.addItemToContainer(box);
         testContainer.addItemToContainer(cylinder);

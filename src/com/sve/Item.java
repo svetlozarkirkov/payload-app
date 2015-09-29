@@ -8,12 +8,10 @@ public abstract class Item {
     private static final int MAX_ITEM_NAME_LENGTH = 25;
 
     private String name;
-    private BigDecimal volume;
     private BigDecimal price;
 
-    protected Item(String name, BigDecimal volume, BigDecimal price) {
+    protected Item(String name, BigDecimal price) {
         this.setName(name);
-        this.setVolume(volume);
         this.setPrice(price);
     }
 
@@ -21,12 +19,8 @@ public abstract class Item {
         return this.name;
     }
 
-    public BigDecimal getVolume() {
-        return this.volume.setScale(2, BigDecimal.ROUND_HALF_UP);
-    }
-
     public BigDecimal getPrice() {
-        return this.price.setScale(2, BigDecimal.ROUND_HALF_UP);
+        return this.price.setScale(2, BigDecimal.ROUND_HALF_EVEN);
     }
 
     private void setName(String name) {
@@ -38,15 +32,6 @@ public abstract class Item {
         }
     }
 
-    private void setVolume(BigDecimal volume) {
-        if (volume.compareTo(BigDecimal.ZERO) > 0) {
-            this.volume = new BigDecimal(volume.toString(), MathContext.DECIMAL128);
-        }
-        else {
-            throw new IllegalArgumentException("Invalid item volume!");
-        }
-    }
-
     private void setPrice(BigDecimal price) {
         if (price.compareTo(BigDecimal.ZERO) >= 0) {
             this.price = new BigDecimal(price.toString(), MathContext.DECIMAL128);
@@ -55,6 +40,8 @@ public abstract class Item {
             throw new IllegalArgumentException("Invalid item price!");
         }
     }
+
+    public abstract BigDecimal getVolume();
 
     @Override
     public String toString() {

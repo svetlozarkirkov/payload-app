@@ -9,17 +9,17 @@ public class Cylinder extends Item {
     private BigDecimal width;
 
     public Cylinder(String name, BigDecimal radius, BigDecimal width, BigDecimal price) {
-        super(name, width.multiply(new BigDecimal(Math.PI)).multiply(radius).multiply(radius), price);
+        super(name, price);
         this.setRadius(radius);
         this.setWidth(width);
     }
 
     public BigDecimal getRadius() {
-        return new BigDecimal(this.radius.toString());
+        return this.radius.setScale(2, BigDecimal.ROUND_HALF_EVEN);
     }
 
     public BigDecimal getWidth() {
-        return new BigDecimal(this.width.toString());
+        return this.width.setScale(2, BigDecimal.ROUND_HALF_EVEN);
     }
 
     private void setRadius(BigDecimal radius) {
@@ -38,6 +38,15 @@ public class Cylinder extends Item {
         else {
             throw new IllegalArgumentException("Invalid item width!");
         }
+    }
+
+    @Override
+    public BigDecimal getVolume() {
+        return this.getWidth()
+                .multiply(new BigDecimal(Math.PI))
+                .multiply(this.getRadius())
+                .multiply(this.getRadius())
+                .setScale(2, BigDecimal.ROUND_HALF_EVEN);
     }
 
     @Override

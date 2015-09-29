@@ -10,22 +10,22 @@ public class Box extends Item {
     private BigDecimal height;
 
     public Box(String name, BigDecimal width, BigDecimal depth, BigDecimal height, BigDecimal price) {
-        super(name, width.multiply(depth).multiply(height), price);
+        super(name, price);
         this.setWidth(width);
         this.setDepth(depth);
         this.setHeight(height);
     }
 
     public BigDecimal getWidth() {
-        return this.width.setScale(2, BigDecimal.ROUND_HALF_UP);
+        return this.width.setScale(2, BigDecimal.ROUND_HALF_EVEN);
     }
 
     public BigDecimal getDepth() {
-        return this.depth.setScale(2, BigDecimal.ROUND_HALF_UP);
+        return this.depth.setScale(2, BigDecimal.ROUND_HALF_EVEN);
     }
 
     public BigDecimal getHeight() {
-        return this.height.setScale(2, BigDecimal.ROUND_HALF_UP);
+        return this.height.setScale(2, BigDecimal.ROUND_HALF_EVEN);
     }
 
     private void setWidth(BigDecimal width) {
@@ -53,6 +53,14 @@ public class Box extends Item {
         else {
             throw new IllegalArgumentException("Invalid item height!");
         }
+    }
+
+    @Override
+    public BigDecimal getVolume() {
+        return this.getWidth()
+                .multiply(this.getDepth())
+                .multiply(this.getHeight())
+                .setScale(2, BigDecimal.ROUND_HALF_EVEN);
     }
 
     @Override
