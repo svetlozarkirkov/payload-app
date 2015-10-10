@@ -80,12 +80,9 @@ public class Container {
 
     @Override
     public String toString() {
-        String containerString =
-                "Width: " + this.getWidth() + "\n" +
+        return "Width: " + this.getWidth() + "\n" +
                 "Depth: " + this.getDepth() + "\n" +
                 "Height: " + this.getHeight() + "\n" +
                 "Total cargo price: " + this.getTotalCargoPrice();
-
-        return containerString;
     }
 }

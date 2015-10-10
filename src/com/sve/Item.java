@@ -45,11 +45,8 @@ public abstract class Item {
 
     @Override
     public String toString() {
-        String itemString =
-                "Name: " + this.getName() + "\n" +
+        return "Name: " + this.getName() + "\n" +
                 "Volume: " + this.getVolume() + "\n" +
                 "Price: " + this.getPrice();
-
-        return itemString;
     }
 }

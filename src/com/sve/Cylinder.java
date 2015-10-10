@@ -51,10 +51,8 @@ public class Cylinder extends Item {
 
     @Override
     public String toString() {
-        String cylinderString = super.toString() + "\n" +
+        return super.toString() + "\n" +
                 "Radius: " + this.getRadius() + "\n" +
                 "Width: " + this.getWidth();
-
-        return cylinderString;
     }
 }

@@ -65,11 +65,9 @@ public class Box extends Item {
 
     @Override
     public String toString() {
-        String boxString = super.toString() + "\n" +
+        return super.toString() + "\n" +
                 "Width: " + this.getWidth() + "\n" +
                 "Height: " + this.getHeight() + "\n" +
                 "Depth: " + this.getDepth();
-
-        return boxString;
     }
 }
